@@ -141,7 +141,7 @@ const Contact = () => {
             </div>
 
             <div className="flex flex-col gap-2 col-span-2">
-              <Label htmlFor="input-field-message">Message</Label>
+              <Label htmlFor="textarea-message">Message</Label>
 
               <Textarea
                 className="col-span-2 h-60 border-2 border-gray-300"
