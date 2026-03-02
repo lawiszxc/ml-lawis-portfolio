@@ -8,6 +8,7 @@ import { useRef, useState } from "react";
 import ReCAPTCHA from "react-google-recaptcha";
 import emailjs from "@emailjs/browser";
 import Swal from "sweetalert2";
+import { Label } from "@/components/ui/label";
 
 const images = [
   "https://images.unsplash.com/photo-1485433592409-9018e83a1f0d?q=80&w=1814&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
@@ -19,6 +20,7 @@ const Contact = () => {
   const form = useRef<HTMLFormElement | null>(null);
   const [captchaValue, setCaptchaValue] = useState<string | null>(null);
   const [loading, setLoading] = useState(false);
+  const recaptchaRef = useRef<ReCAPTCHA | null>(null);
 
   const sendEmail = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -99,44 +101,64 @@ const Contact = () => {
         </ImagesSlider>
         <form ref={form} onSubmit={sendEmail}>
           <div className="grid grid-cols-2 px-30 py-13 gap-2">
-            <Input
-              className="h-12 w-full border-2 border-gray-300"
-              id="input-field-full-name"
-              type="text"
-              name="name"
-              placeholder="Full Name"
-              required
-            />
-            <Input
-              className="h-12 w-full border-2 border-gray-300"
-              id="input-field-email"
-              type="text"
-              placeholder="Email"
-              name="email"
-              required
-            />
+            <div className="flex flex-col gap-2">
+              <Label htmlFor="input-field-full-name">Full Name</Label>
 
-            <Input
-              className="h-12 w-full col-span-2 border-2 border-gray-300"
-              id="input-field-subject"
-              type="text"
-              name="subject"
-              placeholder="Subject"
-              required
-            />
+              <Input
+                className="h-12 w-full border-2 border-gray-300"
+                id="input-field-full-name"
+                type="text"
+                name="name"
+                placeholder="Full Name"
+                required
+              />
+            </div>
 
-            <Textarea
-              className="col-span-2 h-60 border-2 border-gray-300"
-              id="textarea-message"
-              placeholder="Message"
-              name="message"
-              required
-            />
+            <div className="flex flex-col gap-2">
+              <Label htmlFor="input-field-email">Email</Label>
 
-            <ReCAPTCHA
-              sitekey={import.meta.env.VITE_RECAPTCHA_SITE_KEY}
-              onChange={(value: string | null) => setCaptchaValue(value)}
-            />
+              <Input
+                className="h-12 w-full border-2 border-gray-300"
+                id="input-field-email"
+                type="text"
+                placeholder="Email"
+                name="email"
+                required
+              />
+            </div>
+
+            <div className="flex flex-col gap-2 col-span-2">
+              <Label htmlFor="input-field-subject">Subject</Label>
+
+              <Input
+                className="h-12 w-full border-2 border-gray-300"
+                id="input-field-subject"
+                type="text"
+                name="subject"
+                placeholder="Subject"
+                required
+              />
+            </div>
+
+            <div className="flex flex-col gap-2 col-span-2">
+              <Label htmlFor="input-field-message">Message</Label>
+
+              <Textarea
+                className="col-span-2 h-60 border-2 border-gray-300"
+                id="textarea-message"
+                placeholder="Message"
+                name="message"
+                required
+              />
+            </div>
+
+            <div className="col-span-2 flex justify-center">
+              <ReCAPTCHA
+                ref={recaptchaRef}
+                sitekey={import.meta.env.VITE_RECAPTCHA_SITE_KEY}
+                onChange={(value) => setCaptchaValue(value)}
+              />
+            </div>
 
             <Button
               className="col-span-2 hover:scale-105 gap-2"
