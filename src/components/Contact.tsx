@@ -4,9 +4,6 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { IoIosSend } from "react-icons/io";
-import { useRef, useState } from "react";
-import ReCAPTCHA from "react-google-recaptcha";
-import emailjs from "@emailjs/browser";
 
 const images = [
   "https://images.unsplash.com/photo-1485433592409-9018e83a1f0d?q=80&w=1814&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
@@ -15,38 +12,6 @@ const images = [
 ];
 
 const Contact = () => {
-  const form = useRef<HTMLFormElement | null>(null);
-  const [captchaValue, setCaptchaValue] = useState<string | null>(null);
-  const [loading, setLoading] = useState(false);
-
-  const sendEmail = async (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
-
-    if (!captchaValue) {
-      alert("Please verify the reCAPTCHA");
-      return;
-    }
-
-    if (!form.current) return;
-
-    try {
-      setLoading(true);
-
-      await emailjs.sendForm(
-        "service_id",
-        "template_id",
-        form.current,
-        "public_key",
-      );
-
-      alert("Message sent successfully!");
-    } catch (e) {
-      alert("Failed to send message.");
-    } finally {
-      setLoading(false);
-    }
-  };
-
   return (
     <>
       <div className="h-auto max-w-full mt-22" id="contact">
