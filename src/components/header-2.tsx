@@ -99,7 +99,7 @@ export function Header() {
       className={cn(
         "sticky px-5 top-0 z-50 mx-auto w-full max-w-5xl border-b border-transparent md:rounded-md md:border md:transition-all md:ease-out",
         {
-          "bg-background/95 supports-backdrop-filter:bg-background/50 border-border backdrop-blur-lg md:top-4 md:max-w-3xl md:shadow":
+          "bg-background/95 supports-backdrop-filter:bg-background/50 border-border backdrop-blur-lg md:top-4 md:shadow md:w-[95%]":
             scrolled && !open,
           "bg-background/90": open,
         },

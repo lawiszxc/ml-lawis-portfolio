@@ -8,7 +8,10 @@ const App = () => {
 
   return (
     <div className="flex justify-center">
-      <div className="w-[50%] outline-1 outline-gray-200 py-4" id="home">
+      <div
+        className="flex flex-col w-screen md:w-[80%] lg:w-[60%] outline-1 outline-gray-200 py-4"
+        id="home"
+      >
         {isHome && <Header />}
         <main className="mx-auto w-full">
           <Outlet />
