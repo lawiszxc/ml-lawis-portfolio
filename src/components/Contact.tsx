@@ -7,6 +7,7 @@ import { IoIosSend } from "react-icons/io";
 import { useRef, useState } from "react";
 import ReCAPTCHA from "react-google-recaptcha";
 import emailjs from "@emailjs/browser";
+import Swal from "sweetalert2";
 
 const images = [
   "https://images.unsplash.com/photo-1485433592409-9018e83a1f0d?q=80&w=1814&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
@@ -39,9 +40,27 @@ const Contact = () => {
         import.meta.env.VITE_EMAILJS_PUBLIC_KEY,
       );
 
-      alert("Message sent successfully!");
+      await Swal.fire({
+        toast: true,
+        position: "top-end",
+        icon: "success",
+        title: "Message sent successfully!",
+        showConfirmButton: false,
+        timer: 2500,
+        timerProgressBar: true,
+      });
+
+      form.current.reset();
+      setCaptchaValue(null);
     } catch (error) {
-      alert("Failed to send message.");
+      Swal.fire({
+        toast: true,
+        position: "top-end",
+        icon: "error",
+        title: "Failed to send message.",
+        showConfirmButton: false,
+        timer: 2500,
+      });
     } finally {
       setLoading(false);
     }
@@ -110,6 +129,7 @@ const Contact = () => {
               className="col-span-2 h-60 border-2 border-gray-300"
               id="textarea-message"
               placeholder="Message"
+              name="message"
               required
             />
 
@@ -118,7 +138,11 @@ const Contact = () => {
               onChange={(value: string | null) => setCaptchaValue(value)}
             />
 
-            <Button className="col-span-2 hover:scale-105 gap-2" type="submit">
+            <Button
+              className="col-span-2 hover:scale-105 gap-2"
+              type="submit"
+              disabled={loading}
+            >
               <IoIosSend size={18} />
               {loading ? "Sending..." : "Send Message"}
             </Button>
