@@ -113,7 +113,7 @@ export function Header() {
           },
         )}
       >
-        <h4 className="flex items-center gap-1 font-bold hover:scale-105 cursor-default text-[#020618]">
+        <h4 className="flex items-center gap-1 font-bold hover:scale-105 cursor-default text-[#020618] flex-nowrap">
           <FaLaptopCode size={40} /> ML LAWIS
         </h4>
         <div className="hidden items-center gap-2 md:flex">

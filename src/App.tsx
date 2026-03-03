@@ -9,7 +9,7 @@ const App = () => {
   return (
     <div className="flex justify-center">
       <div
-        className="w-full lg:w-[75%] xl:w-[50%] outline-1 outline-gray-200 py-4"
+        className="w-full lg:w-[75%] xl:w-[56%] outline-1 outline-gray-200 py-4"
         id="home"
       >
         {isHome && <Header />}
