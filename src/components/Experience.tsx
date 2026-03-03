@@ -5,7 +5,7 @@ const Experience = () => {
       <motion.section
         className="mt-22 px-5 md:px-15"
         id="experience"
-        initial={{ opacity: 0, x: 80 }}
+        initial={{ opacity: 0, x: -80 }}
         whileInView={{ opacity: 1, x: 0 }}
         transition={{ duration: 0.8, ease: "easeOut" }}
         viewport={{ once: true }}
