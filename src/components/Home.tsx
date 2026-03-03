@@ -69,7 +69,7 @@ const Home = () => {
   return (
     <>
       <motion.section
-        className="mt-5 relative h-165 mx-5 md:mx-15"
+        className="mt-5 relative h-155 md:h-165 mx-5 md:mx-15"
         initial={{ opacity: 0, filter: "blur(10px)" }}
         whileInView={{ opacity: 1, filter: "blur(0px)" }}
         transition={{ duration: 0.8 }}
