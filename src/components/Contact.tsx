@@ -26,7 +26,15 @@ const Contact = () => {
     e.preventDefault();
 
     if (!captchaValue) {
-      alert("Please verify the reCAPTCHA");
+      await Swal.fire({
+        toast: true,
+        position: "top-end",
+        icon: "info",
+        title: "Please verify the reCAPTCHA!",
+        showConfirmButton: false,
+        timer: 2500,
+        timerProgressBar: true,
+      });
       return;
     }
 
