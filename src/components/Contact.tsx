@@ -70,9 +70,16 @@ const Contact = () => {
 
   return (
     <>
-      <div className="h-auto max-w-full mt-22" id="contact">
+      <motion.section
+        className="h-auto w-full mt-22"
+        id="contact"
+        initial={{ opacity: 0, scale: 0.9 }}
+        whileInView={{ opacity: 1, scale: 1 }}
+        transition={{ duration: 0.8 }}
+        viewport={{ once: true }}
+      >
         <ImagesSlider
-          className="h-50 hover:scale-102 cursor-default"
+          className="h-60 md:h-50 hover:scale-102 cursor-default"
           images={images}
         >
           <motion.div
@@ -89,19 +96,19 @@ const Contact = () => {
             }}
             className="z-50 flex flex-col justify-center items-center"
           >
-            <motion.p className="font-bold text-xl md:text-6xl bg-clip-text text-transparent bg-linear-to-b from-neutral-50 to-neutral-400 py-4 px-30">
+            <motion.div className="font-bold text-xl md:text-6xl bg-clip-text text-transparent bg-linear-to-b from-neutral-50 to-neutral-400 py-4 px-5 md:px-30">
               <h2 className="text-accent">Get in touch.</h2>
               <h6 className="text-accent font-light text-justify mt-2 px-2">
                 I am open to freelance work, team projects, or full-time jobs.
                 You can message me anytime for questions or offers, and I will
                 reply as soon as I can.
               </h6>
-            </motion.p>
+            </motion.div>
           </motion.div>
         </ImagesSlider>
         <form ref={form} onSubmit={sendEmail}>
-          <div className="grid grid-cols-2 px-30 py-13 gap-2">
-            <div className="flex flex-col gap-2">
+          <div className="grid grid-cols-1 md:grid-cols-2 px-6 md:px-30 py-13 gap-2">
+            <div className="flex flex-col col-span-2 md:col-span-1 gap-2">
               <Label htmlFor="input-field-full-name">Full Name</Label>
 
               <Input
@@ -114,7 +121,7 @@ const Contact = () => {
               />
             </div>
 
-            <div className="flex flex-col gap-2">
+            <div className="flex flex-col col-span-2 md:col-span-1 gap-2">
               <Label htmlFor="input-field-email">Email</Label>
 
               <Input
@@ -127,7 +134,7 @@ const Contact = () => {
               />
             </div>
 
-            <div className="flex flex-col gap-2 col-span-2">
+            <div className="flex flex-col gap-2 col-span-2 w-full">
               <Label htmlFor="input-field-subject">Subject</Label>
 
               <Input
@@ -170,7 +177,7 @@ const Contact = () => {
             </Button>
           </div>
         </form>
-      </div>
+      </motion.section>
     </>
   );
 };

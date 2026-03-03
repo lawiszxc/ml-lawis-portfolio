@@ -97,7 +97,7 @@ export function Header() {
   return (
     <header
       className={cn(
-        "sticky px-5 top-0 z-50 mx-auto w-full max-w-5xl border-b border-transparent md:rounded-md md:border md:transition-all md:ease-out",
+        "sticky top-0 z-50 mx-auto w-full border-b border-transparent md:rounded-md md:border md:transition-all md:ease-out",
         {
           "bg-background/95 supports-backdrop-filter:bg-background/50 border-border backdrop-blur-lg md:top-4 md:shadow md:w-[95%]":
             scrolled && !open,
@@ -157,10 +157,11 @@ export function Header() {
                 key={link.label}
                 className={buttonVariants({
                   variant: "ghost",
-                  className: "justify-start",
+                  className: "justify-start gap-2",
                 })}
                 onClick={link.action}
               >
+                {link.icon}
                 {link.label}
               </a>
             ))}

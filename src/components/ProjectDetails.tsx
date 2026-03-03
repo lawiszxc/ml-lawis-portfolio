@@ -2,6 +2,7 @@ import { TiArrowBack } from "react-icons/ti";
 import { useNavigate, useParams } from "react-router-dom";
 import ScrollToTop from "@/components/ScrollToTop";
 import useProjectDetails from "@/data/useProjectDetails";
+import { motion } from "motion/react";
 
 const ProjectDetails = () => {
   const { id } = useParams();
@@ -18,7 +19,13 @@ const ProjectDetails = () => {
     <>
       <ScrollToTop />
 
-      <div className="px-15 py-8">
+      <motion.div
+        className="px-5 md:px-15 py-8"
+        initial={{ opacity: 0, filter: "blur(10px)" }}
+        whileInView={{ opacity: 1, filter: "blur(0px)" }}
+        transition={{ duration: 1 }}
+        viewport={{ once: true }}
+      >
         <a
           onClick={() => navigate(-1)}
           className="flex items-center gap-1 font-bold text-lg hover:scale-105 text-red-400"
@@ -42,6 +49,7 @@ const ProjectDetails = () => {
             <div className="flex flex-wrap gap-2">
               {project.technologies.map((tech) => (
                 <div
+                  key={tech.tech}
                   className={`outline-1 mt-3 hover:scale-105 cursor-default px-3 py-0.5 ${tech.color} rounded-md flex flex-wrap items-center gap-2 ${tech.text}`}
                 >
                   {tech.logo}
@@ -59,7 +67,7 @@ const ProjectDetails = () => {
             />
           </div>
         </section>
-      </div>
+      </motion.div>
     </>
   );
 };

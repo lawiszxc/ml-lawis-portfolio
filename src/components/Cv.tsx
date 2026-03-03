@@ -1,10 +1,18 @@
 import { Button } from "@/components/ui/button";
 import { FaDownload } from "react-icons/fa6";
+import { motion } from "framer-motion";
 
 const Cv = () => {
   return (
     <>
-      <section className="mt-22 px-15" id="cv">
+      <motion.section
+        className="mt-22 px-5 md:px-15"
+        id="cv"
+        initial={{ opacity: 0, x: -80 }}
+        whileInView={{ opacity: 1, x: 0 }}
+        transition={{ duration: 0.8, ease: "easeOut" }}
+        viewport={{ once: true }}
+      >
         <div className="flex justify-between items-center">
           <h3 className="font-bold hover:scale-105 cursor-default">
             Curriculum Vitae.
@@ -12,7 +20,14 @@ const Cv = () => {
           <a href="/Mark_Laurence_CV.pdf" download>
             <Button
               size="sm"
-              className="hover:transition-transform hover:scale-105 gap-2"
+              className="md:hidden flex hover:transition-transform hover:scale-105 gap-2"
+            >
+              <FaDownload size={14} />
+            </Button>
+
+            <Button
+              size="sm"
+              className="hidden md:flex hover:transition-transform hover:scale-105 gap-2"
             >
               <FaDownload size={14} /> Download CV
             </Button>
@@ -26,7 +41,7 @@ const Cv = () => {
             alt="my_cv"
           />
         </div>
-      </section>
+      </motion.section>
     </>
   );
 };

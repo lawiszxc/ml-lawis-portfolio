@@ -1,14 +1,22 @@
+import { motion } from "framer-motion";
 const Experience = () => {
   return (
     <>
-      <section className="mt-22 px-15" id="experience">
+      <motion.section
+        className="mt-22 px-5 md:px-15"
+        id="experience"
+        initial={{ opacity: 0, x: 80 }}
+        whileInView={{ opacity: 1, x: 0 }}
+        transition={{ duration: 0.8, ease: "easeOut" }}
+        viewport={{ once: true }}
+      >
         <h3 className="font-bold hover:scale-105 cursor-default">
           Work Experience.
         </h3>
 
         <div className="flex flex-col gap-7 mt-8">
           <div className="flex">
-            <div className="h-auto rounded-lg px-8 relative">
+            <div className="h-auto hidden md:flex rounded-lg px-8 relative">
               <div className="outline-1 h-42 w-fit flex relative"></div>
               <div className="rounded-full outline-1 h-4 w-4 items-center justify-center flex bg-black absolute top-1 left-6">
                 <div className="rounded-full h-2 w-2 outline-1 bg-white"></div>
@@ -41,7 +49,7 @@ const Experience = () => {
             </div>
           </div>
         </div>
-      </section>
+      </motion.section>
     </>
   );
 };

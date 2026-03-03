@@ -12,6 +12,7 @@ import { IoLogoJavascript } from "react-icons/io5";
 import { BiLogoTypescript } from "react-icons/bi";
 import { Button } from "@/components/ui/button";
 import { FaDownload } from "react-icons/fa6";
+import { motion } from "framer-motion";
 
 const tech_stacks = [
   {
@@ -67,16 +68,22 @@ const tech_stacks = [
 const Home = () => {
   return (
     <>
-      <section className="mt-5 relative h-165 mx-15">
+      <motion.section
+        className="mt-5 relative h-165 mx-5 md:mx-15"
+        initial={{ opacity: 0, filter: "blur(10px)" }}
+        whileInView={{ opacity: 1, filter: "blur(0px)" }}
+        transition={{ duration: 0.8 }}
+        viewport={{ once: true }}
+      >
         <HexagonBackground className="h-full rounded-2xl absolute w-full" />
 
         <div className="flex flex-col justify-center items-center gap-5 top-11 cursor-default relative">
-          <h1 className="text-[#020618] text-center tracking-wide">
+          <h1 className="text-[#020618] text-center -tracking-wider md:tracking-wide">
             Aspiring
             <br /> Entry&ndash;Level <br /> Web Developer
           </h1>
 
-          <p className="text-center text-lg">
+          <p className="text-center text-base md:text-lg">
             I create simple, clean, and modern web solutions while improving my
             skills in backend and frontend development. Always willing to learn
             and build better user experiences.
@@ -102,29 +109,29 @@ const Home = () => {
               </Button>
             </a>
           </div>
-        </div>
 
-        <div className="absolute bottom-18 w-full px-2">
-          <Marquee
-            className="overflow-hidden bottom-0"
-            gradient={false}
-            speed={70}
-          >
-            <div className="flex">
-              {tech_stacks.map((tech) => (
-                <div
-                  key={tech.name}
-                  className={`card h-auto ${tech.color} py-2 px-4 rounded-sm mr-2 hover:scale-105 cursor-default`}
-                >
-                  <small className={`flex ${tech.text} items-center gap-2`}>
-                    {tech.logo} {tech.name}
-                  </small>
-                </div>
-              ))}
-            </div>
-          </Marquee>
+          <div className="w-full mt-4 px-2">
+            <Marquee
+              className="overflow-hidden bottom-0"
+              gradient={false}
+              speed={70}
+            >
+              <div className="flex">
+                {tech_stacks.map((tech) => (
+                  <div
+                    key={tech.name}
+                    className={`card h-auto ${tech.color} py-2 px-4 rounded-sm mr-2 hover:scale-105 cursor-default`}
+                  >
+                    <small className={`flex ${tech.text} items-center gap-2`}>
+                      {tech.logo} {tech.name}
+                    </small>
+                  </div>
+                ))}
+              </div>
+            </Marquee>
+          </div>
         </div>
-      </section>
+      </motion.section>
     </>
   );
 };

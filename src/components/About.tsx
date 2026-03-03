@@ -1,7 +1,16 @@
+import { motion } from "framer-motion";
+
 const About = () => {
   return (
     <>
-      <section className="mt-22 px-15" id="about">
+      <motion.section
+        className="mt-22 px-5 md:px-15"
+        id="about"
+        initial={{ opacity: 0, x: 80 }}
+        whileInView={{ opacity: 1, x: 0 }}
+        transition={{ duration: 0.8, ease: "easeOut" }}
+        viewport={{ once: true }}
+      >
         <h3 className="font-bold hover:scale-105 cursor-default">About Me.</h3>
 
         <div className="mt-8">
@@ -12,7 +21,9 @@ const About = () => {
               className="h-55 w-55 object-cover bg-amber-400 rounded-full"
             />
 
-            <h3 className="text-[#020618] font-bold">Hi, I'm Mark Laurence.</h3>
+            <h3 className="text-[#020618] text-center font-bold">
+              Hi, I'm Mark Laurence.
+            </h3>
           </div>
 
           <p className="text-muted-foreground text-justify mt-3">
@@ -38,7 +49,7 @@ const About = () => {
             grow, and gain professional experience as a developer.
           </p>
         </div>
-      </section>
+      </motion.section>
     </>
   );
 };
