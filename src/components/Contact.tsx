@@ -62,6 +62,8 @@ const Contact = () => {
 
       form.current.reset();
       setCaptchaValue(null);
+
+      recaptchaRef.current?.reset();
     } catch (error) {
       Swal.fire({
         toast: true,
