@@ -7,7 +7,7 @@ const App = () => {
   const isHome = location.pathname === "/";
 
   return (
-    <div className="flex justify-center">
+    <div className="flex justify-center w-full">
       <div
         className="w-full lg:w-[75%] xl:w-[56%] outline-1 outline-gray-200 py-4"
         id="home"

@@ -8,9 +8,9 @@ const Cv = () => {
       <motion.section
         className="mt-22 px-5 md:px-15"
         id="cv"
-        initial={{ opacity: 0, x: 80 }}
-        whileInView={{ opacity: 1, x: 0 }}
-        transition={{ duration: 0.8, ease: "easeOut" }}
+        initial={{ opacity: 0, scale: 0.9 }}
+        whileInView={{ opacity: 1, scale: 1 }}
+        transition={{ duration: 0.8 }}
         viewport={{ once: true }}
       >
         <div className="flex justify-between items-center">

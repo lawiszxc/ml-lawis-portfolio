@@ -113,7 +113,7 @@ export function Header() {
           },
         )}
       >
-        <h4 className="flex items-center gap-1 font-bold hover:scale-105 cursor-default text-[#020618] flex-nowrap">
+        <h4 className="flex items-center gap-1 font-bold hover:scale-105 cursor-default text-[#020618]">
           <FaLaptopCode size={40} /> ML LAWIS
         </h4>
         <div className="hidden items-center gap-2 md:flex">
@@ -140,7 +140,7 @@ export function Header() {
 
       <div
         className={cn(
-          "bg-background/90 fixed top-14 right-0 bottom-0 left-0 z-50 flex flex-col overflow-hidden border-y md:hidden px-11",
+          "bg-background/90 fixed top-14 right-0 bottom-0 left-0 z-50 flex flex-col overflow-hidden border-y md:hidden",
           open ? "block" : "hidden",
         )}
       >
@@ -148,7 +148,7 @@ export function Header() {
           data-slot={open ? "open" : "closed"}
           className={cn(
             "data-[slot=open]:animate-in data-[slot=open]:zoom-in-95 data-[slot=closed]:animate-out data-[slot=closed]:zoom-out-95 ease-out",
-            "flex h-full w-full flex-col justify-between gap-y-2 p-4 px-11",
+            "flex h-full w-full flex-col justify-between gap-y-2 p-4",
           )}
         >
           <div className="grid gap-y-2 px-11">
